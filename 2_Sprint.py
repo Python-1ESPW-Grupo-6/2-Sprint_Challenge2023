@@ -18,12 +18,12 @@ notificacao_bairro = []
 causa_risco = []
 
 print('-------------------------------------------------------------------------------------------')
-print('Bem-vido ao nosso projeto "GaloGuard", sistema preventivo para alagamentos nas vias urbanas')
+print('Bem-vido ao projeto "Galo Weather", sistema preventivo para alagamentos nas vias urbanas')
 print('-------------------------------------------------------------------------------------------')
 print('')
 while True:
     print('------------------------------------')
-    print('Seja bem vindo ao hub do nosso site!')
+    print('Seja bem vindo ao hub da Galo Weather!')
     print('------------------------------------')
     print('')
     print('1 - Consultar bairros com maior risco')
@@ -101,7 +101,7 @@ while True:
                     print('2 - Voltar')
                     print('')
                     try:
-                        menu3 = input('Insira o número referente ao local que quer ir: ').lower()
+                        menu3 = int(input('Insira o número referente ao local que quer ir: '))
                         print('')
                         if menu3 == 1:
                             notificacao_area = input('Notifique qual o bairro de risco! ')
