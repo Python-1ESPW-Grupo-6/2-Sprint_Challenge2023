@@ -1,5 +1,6 @@
 #lista de bairros que tendem a alagar em época de chuva intesa (verão)
 # https://imoveis.estadao.com.br/noticias/saiba-quais-sao-os-bairros-mais-suscetiveis-a-enchentes-e-alagamentos-em-sao-paulo/
+import sys
 
 bairros_alagados = ['Mooca', 'Vila Prudente', 'Tatuapé', 'Belenzinho', 'Bela Vista', 'Casa Verde',
                     'Vila Leopoldina', 'Cidade Jardim', 'Chácara Santo Antônio', 'Bosque da Saúde']
@@ -52,29 +53,32 @@ while True:
                         if menu2 == 1:
                             print (f'Bairros cadastrados: {bairros_alagados}')
                             print('')
-                            bairro_user = input('Digite o bairro que queira consultar: ').lower() #input e normalização do dado para evitar erros de sintaxe
-                            bairro_pesquisados.append(bairro_user)
-                            if bairro_user in [bairro.lower() for bairro in bairros_alagados]: #verificação do input e normalização da lista
-                                while True:
-                                    mes_user = input('Digite o nome do mês corrente: ').lower()
-                                    meses_pesquisados.append(mes_user)
+                            while True:
+                                bairro_user = input('Digite o bairro que queira consultar: ').lower() #input e normalização do dado para evitar erros de sintaxe
+                                if bairro_user in [bairro.lower() for bairro in bairros_alagados]: #verificação do input e normalização da lista
+                                    bairro_pesquisados.append(bairro_user)
+                                    while True:
+                                        mes_user = input('Digite o nome do mês corrente: ').lower()
+                                        print('')
+                                        if mes_user in [mes.lower() for mes in meses_temporal]:
+                                            meses_pesquisados.append(mes_user)
+                                            print (f'O bairro {bairro_user.capitalize()} tende a alagar no mês de {mes_user.capitalize()}. Tome cuidado!')
+                                            print('')
+                                            break
+                                        elif mes_user in [mes.lower() for mes in demais_meses]:
+                                            meses_pesquisados.append(mes_user)
+                                            print (f'O bairro {bairro_user.capitalize()} não tende a alagar no mês de {mes_user.capitalize()}. Fique tranquilo!')
+                                            print('')
+                                            break
+                                        else:
+                                            print('')
+                                            print('Mês não encontrado, verifique se contém abreviação ou erro ortográfico') #mensagem de erro ao usuário
+                                            print('')
+                                    break
+                                else:
                                     print('')
-                                    if mes_user in [mes.lower() for mes in meses_temporal]:
-                                        print (f'O bairro {bairro_user.capitalize()} tende a alagar no mês de {mes_user.capitalize()}. Tome cuidado!')
-                                        print('')
-                                        break
-                                    elif mes_user in [mes.lower() for mes in demais_meses]:
-                                        print (f'O bairro {bairro_user.capitalize()} não tende a alagar no mês de {mes_user.capitalize()}. Fique tranquilo!')
-                                        print('')
-                                        break
-                                    else:
-                                        print('')
-                                        print('Mês não encontrado, verifique se contém abreviação ou erro ortográfico') #mensagem de erro ao usuário
-                                        print('')
-                            else:
-                                print('')
-                                print('Bairro não encontrado, verifique se contém abreviação ou erro ortográfico')
-                                print('')
+                                    print('Bairro não encontrado, verifique se contém abreviação ou erro ortográfico')
+                                    print('')
                         elif menu2 == 2:
                             print('Ok, voltando para o menu!')
                             print('')
@@ -152,19 +156,19 @@ while True:
                         print('-------------------------')
                         print('')
                         if len(bairro_pesquisados) == 0 and len(notificacao_bairro) == 0:
-                            break
+                            sys.exit()
                         elif len(bairro_pesquisados) >= 1 and len(notificacao_bairro) == 0:
                             print('Esse é o seu histório no nosso site:')
                             print('')
                             print(f'Procurou esses bairros: {bairro_pesquisados} ')
                             print(f'Nesses respectivos meses: {meses_pesquisados} ')
-                            break
+                            sys.exit()
                         elif len(bairro_pesquisados) == 0 and len(notificacao_bairro) >= 1:
                             print('Esse é o seu histório no nosso site:')
                             print('')
                             print(f'{notificacao_bairro}')
                             print(f'{causa_risco}')
-                            break
+                            sys.exit()
                         else:
                             print('Esse é o seu histório no nosso site:')
                             print('')
@@ -175,8 +179,8 @@ while True:
                             print('')
                             print(f'{notificacao_bairro}')
                             print(f'{causa_risco}')
-                            break
-                    elif sair == 'não' or 'nao':
+                            sys.exit()
+                    elif sair == 'não':
                         print('Ok, voltando para o menu!')
                         print('')
                         break
@@ -185,7 +189,6 @@ while True:
                         print('Opção não encontrada! Tente novamente.')
                         print('--------------------------------------')
                         print('')
-                break
             case _:
                 print('--------------------------------------')
                 print('Opção não encontrada! Tente novamente.')
