@@ -71,7 +71,6 @@ while True:
                                             print('')
                                             break
                                         else:
-                                            print('')
                                             print('Mês não encontrado, verifique se contém abreviação ou erro ortográfico') #mensagem de erro ao usuário
                                             print('')
                                     break
@@ -177,8 +176,8 @@ while True:
                             print('')
                             print('Além de fazer essas notificações: ')
                             print('')
-                            print(f'{notificacao_bairro}')
-                            print(f'{causa_risco}')
+                            print(f'Sobre os seguintes bairros: {notificacao_bairro}')
+                            print(f'Tendo as seguintes descrições: {causa_risco}')
                             sys.exit()
                     elif sair == 'não':
                         print('Ok, voltando para o menu!')
