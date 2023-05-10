@@ -36,7 +36,7 @@ while True:
         menu = int(input('Insira o número referente a parte que quer acessar: '))
         print('')
         match menu:
-            case 1:
+            case 1: #Consultar bairros com maior risco
                 print('--------------------------------------------------------')
                 print('Opção (1 - Consultar bairros com maior risco) escolhida!')
                 print('--------------------------------------------------------')
@@ -58,7 +58,7 @@ while True:
                                 if bairro_user in [bairro.lower() for bairro in bairros_alagados]: #verificação do input e normalização da lista
                                     bairro_pesquisados.append(bairro_user)
                                     while True:
-                                        mes_user = input('Digite o nome do mês corrente: ').lower()
+                                        mes_user = input('Digite o nome do mês corrente (sem abreviação): ').lower()
                                         print('')
                                         if mes_user in [mes.lower() for mes in meses_temporal]:
                                             meses_pesquisados.append(mes_user)
@@ -92,7 +92,7 @@ while True:
                         print('Opção invalida! Digite um número!')
                         print('---------------------------------')
                         print('')
-            case 2:
+            case 2: #Notifique algum bairro de risco
                 print('-----------------------------------------------------')
                 print('Opção (2 - Notifique alguma area de risco) escolhida!')
                 print('-----------------------------------------------------')
@@ -107,10 +107,10 @@ while True:
                         menu3 = int(input('Insira o número referente ao local que quer ir: '))
                         print('')
                         if menu3 == 1:
-                            notificacao_area = input('Notifique qual o bairro de risco! ')
-                            notificacao_bairro.append(notificacao_area)
-                            causa = input('Se souber qual poderia ser a causa de uma possivel enchente, podeiria descreve-la para nós? ')
-                            causa_risco.append(causa)
+                            notificacao_area = input('Notifique qual o bairro de risco: ') #coleta do bairro alagado
+                            notificacao_bairro.append(notificacao_area) #Adicionando bairro a lista de notificação de possível enchente
+                            causa = input('Se souber qual poderia ser a causa de uma possivel enchente, podeiria descreve-la para nós? ') #coleta da causa
+                            causa_risco.append(causa) #armazena a possível causa
                             print('')
                             print('Obrigado pela notificação, voltando para o menu de Notificações!')
                             print('')
@@ -128,7 +128,7 @@ while True:
                         print('Opção invalida! Digite um número!')
                         print('---------------------------------')
                         print('')
-            case 3:
+            case 3: #Conheça mais sobre o projeto
                 print('---------------------------------------------------')
                 print('Opção (3 - Conheça mais sobre o projeto) escolhida!')
                 print('---------------------------------------------------')
@@ -138,14 +138,14 @@ while True:
                 print('bla bla bla')
                 print('')
                 while True:
-                    voltar_menu = input('Quando quiser voltar para o menu apenas digite (voltar): ').lower()
+                    voltar_menu = input('Quando quiser voltar para o menu apenas digite "voltar": ').lower()
                     print('')
                     if voltar_menu == 'voltar':
                         break
                     else:
                         print('Opção invalida! Tente novamente!')
                         print('')
-            case 4:
+            case 4: #Sair
                 while True:
                     sair = input('Tem certeza que quer sair? (sim/não) ').lower()
                     print('')
@@ -154,6 +154,7 @@ while True:
                         print('Obrigado pelo seu acesso!')
                         print('-------------------------')
                         print('')
+                        #Histórico de uso da aplicação
                         if len(bairro_pesquisados) == 0 and len(notificacao_bairro) == 0:
                             sys.exit()
                         elif len(bairro_pesquisados) >= 1 and len(notificacao_bairro) == 0:
