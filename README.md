@@ -1,10 +1,11 @@
 # 2-Sprint_Challenge2023
 
-Fabrício Saavedra - 97631
-Guilherme Akio - 98582
-Guilherme Morais - 551981
-Matheus Motta - 550352
-Vinicius Buzato - 99125
+- Fabrício Saavedra - 97631
+- Guilherme Akio - 98582
+- Guilherme Morais - 551981
+- Matheus Motta - 550352
+- Vinicius Buzato - 99125
+
 
 # Problema e projeto de solução
 
