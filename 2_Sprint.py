@@ -135,7 +135,10 @@ while True:
                 print('')
                 print('Um pouco sobre a história do nosso projeto:')
                 print('')
-                print('bla bla bla')
+                print("Nosso projeto surgiu da preocupação com o crescente número de enchentes nas áreas urbanas e seus efeitos catastróficos sobre as pessoas. Sabemos que o Brasil é um país com muitas regiões vulneráveis, que sofrem com chuvas intensas que causam inundações, deslizamentos e perdas materiais e humanas. E esse problema não é exclusivo do nosso país, muitas outras cidades no mundo sofrem com essa mesma questão.\n")
+                print("Por isso, criamos uma plataforma que utiliza dados em tempo real para prever alagamentos e identificar áreas de risco. Com um algoritmo de previsão de alagamento e um mapeamento das áreas de risco, nossa plataforma envia alertas em tempo real para a população e as autoridades responsáveis, permitindo medidas preventivas antes mesmo da ocorrência das enchentes.\n")
+                print("Além disso, temos um hardware de monitoramento que utiliza dados de previsão de chuva e índice pluviométrico para verificar as condições dos bueiros em regiões pré-determinadas. As informações coletadas são armazenadas e repassadas aos órgãos responsáveis, permitindo uma atuação mais rápida e eficiente em caso de problemas.\n")
+                print("Temos em mente que a chave para resolver problemas complexos como as enchentes urbanas está em colocar as pessoas em primeiro lugar. E é exatamente isso que nossa plataforma faz: utiliza tecnologia de ponta para proteger e salvar vidas, preservando o bem-estar da população e das comunidades afetadas pelas enchentes.\n")
                 print('')
                 while True:
                     voltar_menu = input('Quando quiser voltar para o menu apenas digite "voltar": ').lower()
